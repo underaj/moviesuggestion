@@ -1,0 +1,26 @@
+{
+  "name": "moviesuggestion",
+  "version": "1.0.0",
+  "description": "Late night movie suggestion app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/underaj/moviesuggestion.git"
+  },
+  "author": "AJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/underaj/moviesuggestion/issues"
+  },
+  "homepage": "https://github.com/underaj/moviesuggestion#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jquery": "^3.1.0",
+    "morgan": "^1.7.0"
+  }
+}
