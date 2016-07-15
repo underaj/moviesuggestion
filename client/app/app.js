@@ -9,14 +9,14 @@ movieApp.config(function($routeProvider) {
 })
 
 .factory('moviesAjax', function($http) {
-  var postMovie = function(movieName) {
+  var postMovie = function(moviename) {
     return $http({
       method: 'POST',
       url: '/api/movies',
       headers: {
         'Content-Type': 'Application/json'
       },
-      data: { movieName: movieName}
+      data: { moviename: moviename}
     });
   }
 
@@ -25,7 +25,6 @@ movieApp.config(function($routeProvider) {
       method: 'GET',
       url: '/api/movies'
     }).then(function(obj) {
-      console.log(obj.data);
       return obj.data;
     });
   };
@@ -37,20 +36,19 @@ movieApp.config(function($routeProvider) {
 })
 
 .controller('homeController', function($scope, moviesAjax) {
-  $scope.movies = [{movieName: 'Pulp Fiction'}];
+  $scope.movies = [['Pulp Fiction']];
   
   $scope.getMovies = function() {
     moviesAjax.getMovies()
       .then(function(movies) {
         $scope.movies = movies;
+        console.log($scope.movies);
       });
   }
 
-  $scope.postMovie = function(movieName) {
-    console.log(movieName);
-    moviesAjax.postMovie(movieName)
+  $scope.postMovie = function(moviename) {
+    moviesAjax.postMovie(moviename)
       .then(function(res) {
-        console.log(res);
         $scope.getMovies();
       });
   }

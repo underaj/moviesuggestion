@@ -10,9 +10,8 @@ module.exports = function Router() {
   router.post('/user/signup', userCtrl.signup);  
 
   // Movie routes
-    router.get('/movies', movieCtrl.getAll);
+  router.get('/movies', movieCtrl.getAll);
   router.post('/movies', movieCtrl.addMovie);
-
 
   return router;
 }

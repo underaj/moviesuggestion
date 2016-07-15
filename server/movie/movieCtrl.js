@@ -6,13 +6,17 @@ movies = [
   {movieName: 'WOOPWOOP'}
 ];
 
+var movieModel = require('./movieModel.js')
 
 module.exports = {
   getAll: function(req, res) {
-    res.send(movies);
+    movieModel.getAll(function(movieArray) {
+      res.send(movieArray);
+    });
   },
   addMovie: function(req, res) {
-    movies.push(req.body);
-    res.send('sucess');
+    movieModel.addMovie(req.body, function(rows) {
+      res.send(rows);
+    });
   }
 }
