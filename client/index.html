@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>
-    Movie Suggestion App    
-  </title>
-</head>
-<body>
-  Hello
-</body>
+<html ng-app='movieApp'>
+  <head>
+    <meta charset="uft-8" />
+    <title>Movie Suggestion App</title>
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>
+  </head>
+  <body>
+    <h1>Movie Suggestion</h1>
+    <div ng-view></div>
+    <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/home/home.js"></script>
+  </body>
 </html>

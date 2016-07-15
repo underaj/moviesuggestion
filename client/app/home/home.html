@@ -1,0 +1,7 @@
+<div id="container">
+  <input ng-model="movieName"></input>
+  <button ng-click="postMovie(movieName)">Submit Movie</button>
+  <div ng-repeat="movie in movies">
+    <h5>{{movie.movieName}}</h5>
+  </div>
+</div>
