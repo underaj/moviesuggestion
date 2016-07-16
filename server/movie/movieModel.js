@@ -1,22 +1,10 @@
-var connection = require('../db');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-module.exports = {
-  getAll: function(cb) {
-    connection.query('SELECT * FROM movies', function(err, rows, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        cb(rows);
-      }
-    });
-  },
-  addMovie: function(movieObj, cb) {
-    connection.query('INSERT INTO movies SET ?', movieObj, function(err, rows, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        cb(rows);
-      }
-    });
-  }
-};
+var movieSchema = new Schema({
+  moviename: { type : String , unique : true, required : true }
+});
+
+var Movie = mongoose.model('Movie', movieSchema);
+
+module.exports = Movie;

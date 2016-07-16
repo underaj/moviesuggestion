@@ -3,6 +3,9 @@ var config = require('./config/config');
 var apiRoutes = require('./config/routes')();
 var app = express();
 
+require('./db/index.js');
+require('./config/seed.js');
+
 config(app, express);
 app.use('/api', apiRoutes);
 

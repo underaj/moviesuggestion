@@ -1,18 +1,10 @@
-var mysql = require('mysql');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/moviesuggestion');
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'moviesuggestion'
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+
+  console.log('Connected to database moviesuggestion......');
 });
-
-// connection.connect(function(err) {
-//   if (err) {
-//     console.log('error connecting' + err.stack);
-//   } else {
-//     console.log('connected to database...')
-//   }
-// });
-
-module.exports = connection;
-

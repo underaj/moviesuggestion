@@ -42,7 +42,6 @@ movieApp.config(function($routeProvider) {
     moviesAjax.getMovies()
       .then(function(movies) {
         $scope.movies = movies;
-        console.log($scope.movies);
       });
   }
 

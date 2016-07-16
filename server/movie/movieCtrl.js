@@ -1,22 +1,19 @@
-movies = [
-  {movieName: 'Godfather'},
-  {movieName: 'Pokemon'},
-  {movieName: 'BOOMBOOM'},
-  {movieName: 'SHAKALAKA'},
-  {movieName: 'WOOPWOOP'}
-];
+var Movie = require('./movieModel.js')
 
-var movieModel = require('./movieModel.js')
 
 module.exports = {
   getAll: function(req, res) {
-    movieModel.getAll(function(movieArray) {
-      res.send(movieArray);
-    });
+    Movie.find().exec(function(err, movies){
+      res.send(movies);
+    })
   },
   addMovie: function(req, res) {
-    movieModel.addMovie(req.body, function(rows) {
-      res.send(rows);
+    // req.body //{moviename: 'name'}
+    Movie.create(req.body)
+    .then(function(movie){
+      console.log(movie);
+      res.send(movie);
     });
+
   }
 }
